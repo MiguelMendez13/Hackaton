@@ -3,9 +3,20 @@ baseLeerLinea=base.readlines()
 
 #mujer,hombre,nospeci
 sexoT=[0,0,0]
-entidadResT=[]
+
+entidadResT={36:0,97:0,98:0,99:0}
+for x in range(1,33):
+	entidadResT[x]=0
+
+
 municipioResT=[]
-edadT=[]
+
+
+edadT={}
+for x in range(0,150):
+	edadT[x]=0
+
+
 embarazoT=[]
 diabetisT=[]
 epocT=[]
@@ -18,21 +29,27 @@ tabaquismoT=[]
 
 
 for x in baseLeerLinea:
-
-
-	sexo=x.split(',')[5]
+	cortar=x.split(',')
+	sexo=cortar[5]
 	if sexo=="1":
 		sexoT[0]+=1
 	elif  sexo=="2":
 		sexoT[1]+=1
 	elif sexo=="99":
 		sexoT[2]+=1
+	else:
+		pass
+	#-------------
+	entidadResT[int(cortar[7].replace('"',""))]+=1
+	edadT[int(cortar[15])]+=1
 
 
 
-	"""entidadResT.append(x.split(',')[7])
+
+
+"""
 	municipioResT.append(x.split(',')[8])
-	edadT.append(x.split(',')[15])
+
 	embarazoT.append(x.split(',')[17])
 	diabetisT.append(x.split(',')[20])
 	epocT.append(x.split(',')[21])
@@ -43,4 +60,9 @@ for x in baseLeerLinea:
 	tabaquismoT.append(x.split(',')[29])"""
 
 print(sexoT)
+print("\n\n")
+print(entidadResT)
+print("\n\n")
+print(edadT)
+print("\n\n")
 
