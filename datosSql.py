@@ -49,7 +49,7 @@ for x in baseLeerLinea:
 	obesidad = cortar[27]
 	tabaquismo = cortar[29]
 	epoc = cortar[21]
-	muertes = cortar[12]
+	muertes = cortar[12].replace('"',"")
 	diabetis = cortar[20]
 
 	if sexo=="1":sexoT[0]+=1
