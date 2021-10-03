@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from views import saludo
+from django.conf import settings
+from django.conf.urls.static import static
+
+from hackaton1 import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('saludar/', saludo,
-]
+    path('saludar/', views.saludo,),
+]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
